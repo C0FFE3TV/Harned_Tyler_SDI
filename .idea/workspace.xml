@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="76864f15-24d5-4fad-8b83-cd36d255a346" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ProblemSolving/ProblemSolving.docx" afterPath="" />
-    </list>
+    <list default="true" id="76864f15-24d5-4fad-8b83-cd36d255a346" name="Default" comment="" />
     <ignored path="Harned_Tyler_SDI.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
