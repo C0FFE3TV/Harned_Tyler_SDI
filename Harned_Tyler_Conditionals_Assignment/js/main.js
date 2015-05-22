@@ -6,6 +6,9 @@
  Budget Calculator
  */
 
+// Welcome the user
+alert("Welcome user! Today we'll see if you can budget correctly. This calculator will help you determine if you can afford an item or not. Enjoy!");
+
 // Gather some data and create variables
 var check = prompt("How much was your check?");
 var bills = prompt("How much is your total bills? ");
