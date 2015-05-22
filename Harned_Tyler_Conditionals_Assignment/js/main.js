@@ -6,7 +6,7 @@
  Budget Calculator
  */
 
-// Gather some data
+// Gather some data and create variables
 var check = prompt("How much was your check?");
 var bills = prompt("How much is your total bills? ");
 var savings = prompt("How much is the item you are wishing to purchase? ");
