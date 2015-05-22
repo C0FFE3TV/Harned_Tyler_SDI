@@ -39,4 +39,5 @@ if(bills >= check){
     console.log("It looks like the user can afford the item!");
 }
 
+// Say goodbye to the user and tell them how to do the calculator again.
 prompt("Thank you "+name+"! Hope you enjoyed. To restart, please refresh the browser.");
