@@ -10,9 +10,17 @@
 alert("Welcome user! Today we'll see if you can budget correctly. This calculator will help you determine if you can afford an item or not. Enjoy!");
 
 // Gather some data and create variables
+var name = prompt("What is your name?");
+
+// Log the user's name in the console
+console.log("User's name is "+name+".");
+
+// Continue to gather more information about the user
 var check = prompt("How much was your check?");
 var bills = prompt("How much is your total bills? ");
 var savings = prompt("How much is the item you are wishing to purchase? ");
+
+// Perform some basic calculations. This will be used later on.
 left = check - bills - savings;
 total = check - bills;
 
@@ -30,3 +38,5 @@ if(bills >= check){
     alert("Congrats! It looks like you have enough for that item you want! This was because your check was $"+check+" and your bills totaled out to be $"+bills+". Enjoy!");
     console.log("It looks like the user can afford the item!");
 }
+
+prompt("Thank you "+name+"! Hope you enjoyed. To restart, please refresh the browser.");
