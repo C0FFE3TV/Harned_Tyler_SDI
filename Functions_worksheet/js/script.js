@@ -32,4 +32,3 @@ function calcBeeSting(weight) // Create the parameters
 {
     return 8.666666667 * weight; // Return the function
 }
-
