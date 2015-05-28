@@ -37,3 +37,17 @@ while(min==="" || isNaN(min)){
     }
 }
 
+// Ask the user for a maximum number
+var max = prompt("Please type in a maximum number:");
+
+// Validate the maximum number
+while(max==="" || isNaN(max) || Number(max)<Number(min)){
+    // Re-prompt the user
+    if(max===""){
+        max=prompt("Please do not leave blank.\nPlease type in a maximum number:");
+    }else if(Number(max)<Number(min)){
+        max=prompt("The maximum number is less than the minimum number! Please make sure that the maximum value is greater than "+min+".\nPlease type in a maximum number:");
+    }else{
+        max=prompt("Please only use numbers.\nPlease type in a maximum number:");
+    }
+}
