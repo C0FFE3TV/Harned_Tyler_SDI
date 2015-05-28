@@ -55,7 +55,9 @@ while(max==="" || isNaN(max) || Number(max)<Number(min)){
 // Function call - nameOfFunction();
 // "GO BUTTON"
 // Arguments go inside of function call
-randomCalc(min,max);
+// Need a variable to catch the returned value
+var results = randomCalc(min,max);
+console.log("You're random number between "+min+" and "+max+" is "+results+".");
 
 // Create a function to calculate the random number
 /*
@@ -72,5 +74,22 @@ function randomCalc(minNum,maxNum){
     // Math.random() - gives a random number between 0 & 1
     // Math.round(variable) - basic rounding
     var randomNumber = Math.round(Math.random()*(maxNum-minNum) + Number(minNum));
-    console.log(randomNumber);
+    // console.log(randomNumber);
+    // Return the value to our main code
+    return randomNumber;
+}
+
+// Create a for loop to get 15 random numbers
+for(var i=0;i<15;i++){
+    console.log(randomCalc(1,10));
+}
+
+var yesOrNo=prompt("Please type in yes or no:");
+
+// Create a while loop to see if they typed in yes or no.
+while(yesOrNo!="yes" && yesOrNo!="no"){
+    yesOrNo=prompt("Please type in only yes or no:");
+    // Convert all text to lower case.
+    yesOrNo=yesOrNo.toLowerCase();
+
 }
