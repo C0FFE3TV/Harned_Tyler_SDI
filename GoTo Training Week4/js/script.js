@@ -52,8 +52,25 @@ while(max==="" || isNaN(max) || Number(max)<Number(min)){
     }
 }
 
-// Find a random number
-// Math.random() - gives a random number between 0 & 1
-// Math.round(variable) - basic rounding
-var randomNumber = Math.round(Math.random()*(max-min) + Number(min));
-console.log(randomNumber);
+// Function call - nameOfFunction();
+// "GO BUTTON"
+// Arguments go inside of function call
+randomCalc(min,max);
+
+// Create a function to calculate the random number
+/*
+function functionName(parameters){
+    CODE TO RUN EVERYTIME THE FUNCTION IS CALLED
+}
+*/
+
+// Make function flexible by using arguments and parameters
+// These send information into a function and catches it there
+
+function randomCalc(minNum,maxNum){
+    // Find a random number
+    // Math.random() - gives a random number between 0 & 1
+    // Math.round(variable) - basic rounding
+    var randomNumber = Math.round(Math.random()*(maxNum-minNum) + Number(minNum));
+    console.log(randomNumber);
+}
