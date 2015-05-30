@@ -96,3 +96,16 @@ if(salary==="bi-weekly" || salary==="biweekly"){ // if the user typed bi-weekly 
     var b = hourly * hours * Number(2); // multiply hourly wage by hours by 2, resulting in the ariable 'b'
     console.log("The user will earn $"+b+" from working "+hours+" hours. The user gets paid bi-weekly."); // log out the result
 }
+
+var restart = prompt("Do you wish to restart? Type yes or no: ");
+
+// Create a while loop to see if they typed in yes or no.
+while(restart!="yes" && restart!="no"){
+    restart=prompt("That's not a valid entry!\nPlease type in yes or no if you want to restart the code:");
+    // Convert all text to lower case.
+    restart=restart.toLowerCase();
+}
+
+for(yes==="yes"){
+    console.log("Restarting code...");
+}
