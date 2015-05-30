@@ -72,19 +72,19 @@ function calcOvertime(base40,ot){
     return overPay; // return the result
 }
 
-function regPay(base40,hourly){
-    var reg = Number(base40) * Number(hourly);
-    return reg;
+function regPay(base40,hourly){ // create a function to calculate regular hourly wage
+    var reg = Number(base40) * Number(hourly); // This is the calculation; make it assigned to variable reg
+    return reg; // return the variable reg to the main code
 }
 
-var regularPay = regPay(baseHours,hourly);
-console.log("The user made $"+regularPay+" for working 40 hours.");
+var regularPay = regPay(baseHours,hourly); // assign the reg variable to a function in the main code
+console.log("The user made $"+regularPay+" for working 40 hours."); // log out the result of what the user makes for working a base 40 hours
 
 
 if((overtime>0)){ // If the overtime amount is greater than 0
     var c = hourly/2 + parseInt(hourly); // multiply hours by 1/2 to get overtime pay
     var d = c * overtime + Number(regularPay); // multiply overtime pay by overtime hours
-    console.log("The user will earn $"+d+" from working "+overtime+" hours of overtime.");
+    console.log("The user will earn $"+d+" from working "+overtime+" hours of overtime."); // log out the reslt
 }
 
 if(salary==="weekly"){ // If the user typed in weekly as their pay
