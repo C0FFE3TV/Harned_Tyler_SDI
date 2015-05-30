@@ -96,3 +96,5 @@ if(salary==="bi-weekly" || salary==="biweekly"){ // if the user typed bi-weekly 
     var b = hourly * hours * Number(2); // multiply hourly wage by hours by 2, resulting in the ariable 'b'
     console.log("The user will earn $"+b+" from working "+hours+" hours. The user gets paid bi-weekly."); // log out the result
 }
+
+alert("Thanks for using this calculator! Please refresh the browser to try it again.");
