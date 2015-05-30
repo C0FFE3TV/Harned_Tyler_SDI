@@ -10,40 +10,89 @@
 // alert("Testing to see if connected.");
 // console.log("Testing to see if connected.");
 
-// Create a calculator that determines the user's age based on their birthday
-var month = prompt("What month where you born in: "); // Ask the user what month they where born in, and set it as a variable.
+// Create a calculator to calculate salary based on hourly wage, hours worked
 
-// Create a while loop to check if they typed in a month, or if they left it blank.
-while(month!="january" && month!="february" && month!="march" && month!="april" && month!="may" && month!="june" && month!="july" && month!="august" && month!="september" && month!="november" && month!="october" && month!="december" || month===""){ // Check to see if the user entered a proper month, or if they ran it blank. If so, run the next series of codes.
-    if(month!="january" && month!="february" && month!="march" && month!="april" && month!="may" && month!="june" && month!="july" && month!="august" && month!="september" && month!="november" && month!="october" && month!="december" ) { // if the user didn't enter a proper month, then run this code.
-        month = prompt("Please only type in the month.\nWhat month where you born in: \n\nExample: December"); // Prompt the user to type in a month (if they did it wrong)
-        month = month.toLowerCase(); // Set the user's input to lowercase, to better suite the codee
+alert("Welcome! Today, we'll calculate your wage with or without overtime.\nWe'll need hourly wage, pay by weekly or bi-weekly, and hours worked.");
+
+// Create a variable to determine how much the user gets paid hourly
+var hourly = prompt("Please enter how much you get paid hourly: ");
+
+// Validate the variable
+while(hourly==="" || isNaN(hourly)){ // Check to see if it's blank, or not a number
+    // Re-prompt the user to not leave it blank
+    if(hourly===""){
+        hourly=prompt("Please don't leave this blank!\nHow much do you get paid hourly: ");
+        // Re-prompt the user to only use numbers
     }else{
-        month = prompt("Please don't leave this blank.\nWhat month where you born in:"); // Tell the user to not leave it blank and prompt them to enter it again.
+        hourly=prompt("Please only use numbers.\nHow much do you get paid hourly: ");
     }
 }
-console.log("The user entered "+month+" as what month they where born in."); // Log what informatio the user has entered into the console.
 
-// Ask the user what day of the month they where born on; set it as a variable
-var day = prompt("What day of the month where you born on: "); // Set the day as a variable (what the user entered)
+// Log this result into the console
+console.log("The user gets paid $"+hourly+" per hour.");
 
-while(isNaN(day) || day===""){ // Create a while loop to make sure that the user has entered a number and/or didn't leave it blank
-    if(isNaN(day)){ // Code to run if the user didn't enter a number.
-        day = prompt("Please only use numbers.\nWhat day of the month where you born on: "); // Prompt the user to only user numbers and ask them to enter the day
-    }else{ // If it's left blank, run this code
-        day=prompt("Please don't leave this blank.\nWhat day of the month where you born on: "); // Promot the user to not leave it blank and enter the data again.
+// Create a variable to determine frequency paid
+var salary = prompt("Please type in if you get paid weekly or bi-weekly: ");
+salary=salary.toLowerCase(); // turn salary variable to lower case
+
+// Validate the variable salary
+while(salary==="" || salary!="weekly" && salary!="bi-weekly" && salary!="biweekly"){ // Check to see if the user left it blank or didn't enter a valid response
+    if(salary===""){ // Code to run if it's blank
+        salary=prompt("Please don't leave this blank!\nType in if you get paid weekly or bi-weekly: "); // re-prompt the user to not leave blanl
+    }else{ // If not blank but not a valid response, run this
+        salary=prompt("That's not a valid response.\nPlease type in if you get paid weekly or bi-weekly: "); // re-prompt the user to enter a valid response
     }
 }
-console.log("The user entered "+day+" as the day they where born on."); // Log the information that the user has entered into the console.
 
-// Ask the user what year they where born in; set it as a variable.
-var year = prompt("What year where you born in: "); // set the user's data as a variable
+// Log this result into the console.
+console.log("The user gets paid "+salary+".");
 
-// Create a while loop to see if the user used numbers, &&/or if they left it blank.
-while(isNaN(year) || year==="") { // Check to see if the user didn't enter a number, or if they left it blank.
-    if(isNaN(year)){ // Code to run if the user didn't enter a number
-        year = prompt("Please only use numbers!\nWhat year where you born in: "); // Prompt the user to only use numbers and re-enter the data.
-    }else{ // If they entered a number correctly, but left it blank, run this code.
-        year=prompt("Please don't leave this blank.\nWhat year where you born in: "); // Prompt the user to not leave this blank and to re-enter the data.
-    }
+// Create a variable to gather hours worked
+var hours = prompt("Please type in how many hours you get weekly: ");
+
+// Validate the user's response
+while(hours==="" || isNaN(hours)){
+    if(hours===""){ // Code to run if the user left the field blank
+        hours=prompt("Please don't leave this blank!\nPlease enter how many hours you get weekly: "); // re-prompt the user to not leave blank; gather new data
+    }else{ // code to run if the user didn't leave blank, but didn't enter a number
+        hours=prompt("Please only use numbers!\nPlease enter how many hours you get weekly: "); // re-prompt the user to only use numbers; assign new value
+}
+}
+
+// Log this result into the console.
+console.log("The user will get "+hours+" hours in a week.");
+
+var baseHours = 40; // create a variable for a 40-hour work week
+var overtime = calcOvertime(hours,baseHours); // Create a variable for the results in the function
+console.log("The total amount of overtime in hours is "+overtime+"."); // Log it what the amount of overtime the user will get
+
+// Create a function to determine how many hours of overtime the user has
+function calcOvertime(base40,ot){
+    var overPay = Number(base40) - Number(ot); // Calculation for the result
+    return overPay; // return the result
+}
+
+function regPay(base40,hourly){
+    var reg = Number(base40) * Number(hourly);
+    return reg;
+}
+
+var regularPay = regPay(baseHours,hourly);
+console.log("The user made $"+regularPay+" for working 40 hours.");
+
+
+if((overtime>0)){ // If the overtime amount is greater than 0
+    var c = hourly/2 + parseInt(hourly); // multiply hours by 1/2 to get overtime pay
+    var d = c * overtime + Number(regularPay); // multiply overtime pay by overtime hours
+    console.log("The user will earn $"+d+" from working "+overtime+" hours of overtime.");
+}
+
+if(salary==="weekly"){ // If the user typed in weekly as their pay
+    var a = d + parseInt(regularPay); // calculate a weekly wage; hourly wage times hours worked
+    console.log("The user will earn $"+a+" from working "+hours+" hours. The user gets paid weekly."); // log out the result
+}
+
+if(salary==="bi-weekly" || salary==="biweekly"){ // if the user typed bi-weekly as their pay
+    var b = hourly * hours * Number(2); // multiply hourly wage by hours by 2, resulting in the ariable 'b'
+    console.log("The user will earn $"+b+" from working "+hours+" hours. The user gets paid bi-weekly."); // log out the result
 }
